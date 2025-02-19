@@ -1,0 +1,51 @@
+.versionbox {
+    display: none;
+}
+
+.navsettop, .tocset {
+    overflow-y: auto;
+    background-color: #689ae5;
+    scrollbar-color: #3654a9 #6085d9;
+}
+
+.tocset {
+    border-top: 6rem solid #689ae5;
+}
+
+.navsetbottom {
+    background-color: #689ae5;
+}
+
+.nonavigation {
+    color: #5e5eeb;
+}
+
+.tocviewsublistonly, .tocviewsublisttop, .tocviewsublistbottom {
+    border-left: 1px solid #5454e1;
+}
+
+.tocviewlist table {
+    width: fit-content;
+}
+
+ul, ol {
+    margin: 0 0 1em 0;
+}
+
+li p {
+    margin: 0 0 0 0;
+}
+
+code {
+    display: inline;
+    background-color: #e7edf3;
+    padding: 1px 5px;
+    border-radius: 3px;
+    line-height: normal;
+}
+
+pre {
+    margin-left: 1em;
+    border-left: 1px dotted black;
+    padding-left: 1em;
+}
