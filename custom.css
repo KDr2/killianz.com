@@ -8,6 +8,10 @@
     scrollbar-color: #3654a9 #6085d9;
 }
 
+.tocset {
+    border-top: 6rem solid #689ae5;
+}
+
 .navsetbottom {
     background-color: #689ae5;
 }
