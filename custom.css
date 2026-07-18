@@ -1,51 +1,528 @@
-.versionbox {
+:root {
+    --page: #ebddc9;
+    --panel: #d3bd9d;
+    --panel-soft: #cab28f;
+    --ink: #211a14;
+    --muted: #625647;
+    --muted-soft: #897c6e;
+    --link: #4d3927;
+    --link-hover: #2f2419;
+    --code: #dfcfb7;
+    --note: #e3d4bd;
+}
+
+html {
+    background: var(--page);
+}
+
+body {
+    color: var(--ink);
+    background: var(--page);
+}
+
+body,
+.main,
+.refcontent,
+.sroman,
+i {
+    font-family:
+        Charter-Racket,
+        "Iowan Old Style",
+        Iowan,
+        Baskerville,
+        "Palatino Linotype",
+        "Book Antiqua",
+        "Source Serif 4",
+        "Source Serif Pro",
+        "Libre Baskerville",
+        "Times New Roman",
+        serif;
+}
+
+.tocview,
+.tocsub,
+.navsettop,
+.navsetbottom,
+.author {
+    font-family: "Fira", "Helvetica Neue", sans-serif;
+}
+
+.stt,
+code,
+pre,
+.inline-code,
+.code-block,
+.SCodeFlow,
+.SVerbatim,
+.hspace {
+    font-family:
+        "Fira-Mono",
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+}
+
+.versionbox,
+#contextindicator {
     display: none;
 }
 
-.navsettop, .tocset {
-    overflow-y: auto;
-    background-color: #689ae5;
-    scrollbar-color: #3654a9 #6085d9;
+.maincolumn {
+    width: auto;
+    max-width: 45rem;
+    min-width: 0;
+    margin-top: 2.6rem;
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+    margin-left: calc(15.5rem + 4rem);
+}
+
+.main {
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+p,
+.SIntrapara {
+    margin: 0 0 1.05em 0;
+    line-height: 1.68;
+}
+
+ul,
+ol {
+    margin: 0 0 1.2em 0;
+}
+
+li {
+    margin-left: 1.2em;
+}
+
+li p {
+    margin: 0.15em 0 0.45em 0;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8 {
+    color: var(--ink);
+    font-family:
+        Charter-Racket,
+        "Iowan Old Style",
+        Iowan,
+        Baskerville,
+        "Palatino Linotype",
+        "Book Antiqua",
+        "Times New Roman",
+        serif;
+    border: 0;
+}
+
+h2 {
+    position: static;
+    top: auto;
+    width: auto;
+    margin: 0 0 1.6rem 0;
+    font-size: 2.55rem;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+h3,
+h4,
+h5,
+h6,
+h7,
+h8 {
+    margin-top: 2.3rem;
+    margin-bottom: 0.7rem;
+    padding-top: 0;
+    border-top: 0;
+    font-size: 1.16rem;
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: 0;
+}
+
+h2 .stt,
+h3 .stt,
+h4 .stt,
+h5 .stt,
+h6 .stt,
+h7 .stt,
+h8 .stt {
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.94em;
+    font-weight: inherit;
+}
+
+.main table.boxed {
+    background: none;
+}
+
+.main table.boxed td,
+.main table.boxed th {
+    background: transparent;
+}
+
+.toptoclink,
+.toclink {
+    text-decoration: none;
+}
+
+.toptoclink {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.toclink {
+    color: var(--muted);
+}
+
+.toptoclink:hover,
+.toclink:hover {
+    color: var(--link-hover);
+}
+
+code,
+.inline-code {
+    display: inline;
+    background: var(--code);
+    border: 0;
+    padding: 0.04em 0.35em;
+    border-radius: 0.18rem;
+    line-height: inherit;
+}
+
+pre,
+.code-block,
+.SCodeFlow,
+.SVerbatim {
+    margin: 1.4rem 0 1.6rem 0;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    border: 0;
+    border-radius: 0.18rem;
+    box-shadow: none;
+    background: var(--code);
+}
+
+pre code,
+.code-block code {
+    padding: 0;
+    background: transparent;
+}
+
+.refcolumn,
+.refcolumnleft {
+    background: var(--note);
+    border: 1px solid rgba(112, 102, 88, 0.14);
+    border-left: 0.28rem solid rgba(150, 139, 126, 0.42);
+    border-radius: 0.16rem;
+    box-sizing: border-box;
+    box-shadow: none;
+    color: var(--muted);
+    padding: 0.55rem 0.85rem 0.65rem 0.9rem;
+}
+
+.refcontent {
+    color: var(--muted);
+    font-family: "Fira", "Helvetica Neue", sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+}
+
+.refcontent p {
+    margin: 0;
+    line-height: inherit;
+}
+
+.refcontent p + p {
+    margin-top: 0.8rem;
+}
+
+.refcontent a {
+    color: var(--link);
+    font-weight: 400;
+}
+
+.refcontent a:hover {
+    color: var(--link-hover);
+}
+
+.navsettop,
+.navsetbottom {
+    display: none;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .tocset {
-    border-top: 6rem solid #689ae5;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15.5rem;
+    padding: 2.1rem 1.1rem 1.5rem 1.2rem;
+    overflow-y: auto;
+    border: 0;
+    background: var(--panel);
+    box-shadow: none;
+    scrollbar-color: #cbbca8 #ebe4d8;
 }
 
-.navsetbottom {
-    background-color: #689ae5;
+.tocview,
+.tocsub {
+    margin-top: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
-.nonavigation {
-    color: #5e5eeb;
+.tocset td {
+    padding-bottom: 0.38rem;
+    padding-left: 0.08rem;
+    vertical-align: text-top;
+    line-height: 1.4;
 }
 
-.tocviewsublistonly, .tocviewsublisttop, .tocviewsublistbottom {
-    border-left: 1px solid #5454e1;
+.tocset td a {
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.tocset td a:hover {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.tocviewtitle {
+    margin-bottom: 1rem;
+}
+
+.tocviewlist,
+.tocsublist {
+    margin: 0;
+    padding: 0;
 }
 
 .tocviewlist table {
     width: fit-content;
+    font-size: 0.86rem;
 }
 
-ul, ol {
-    margin: 0 0 1em 0;
+.tocsub table,
+table.tocsublist {
+    font-size: 0.86rem;
 }
 
-li p {
-    margin: 0 0 0 0;
+.tocset td a.tocviewselflink {
+    color: var(--ink);
+    font-family:
+        "Charter-Racket",
+        "Iowan Old Style",
+        "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
-code {
-    display: inline;
-    background-color: #e7edf3;
-    padding: 1px 5px;
-    border-radius: 3px;
-    line-height: normal;
+.tocviewselflink {
+    text-decoration: none;
 }
 
-pre {
-    margin-left: 1em;
-    border-left: 1px dotted black;
-    padding-left: 1em;
+.tocviewsublist,
+.tocviewsublistonly,
+.tocviewsublisttop,
+.tocviewsublistbottom {
+    margin-left: 0.45rem;
+    padding-left: 0.55rem;
+    border-left: 0;
+}
+
+.tocviewsublist,
+.tocviewsublistbottom {
+    margin-bottom: 0.75rem;
+}
+
+.tocview td,
+.tocsub td,
+.tocviewsublist td,
+.tocviewsublistbottom td,
+.tocviewsublisttop td,
+.tocviewsublistonly td {
+    font-size: 0.87rem;
+    line-height: 1.5;
+}
+
+.tocviewtoggle {
+    color: var(--muted-soft);
+    font-size: 0.72rem;
+}
+
+.tocsub {
+    margin-top: 1.4rem;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.tocsubtitle {
+    color: var(--muted-soft);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.tocsublinknumber {
+    color: var(--muted-soft);
+}
+
+.tocsublink,
+.tocsubseclink,
+.tocsubnonseclink {
+    color: var(--muted);
+}
+
+.tocsublist td {
+    padding-left: 0.25rem;
+    padding-top: 0.15rem;
+}
+
+.nosearchform {
+    display: none;
+}
+
+@media all and (max-width: 980px) {
+    .maincolumn {
+        margin-right: 2.4rem;
+        margin-left: calc(15.5rem + 2.6rem);
+    }
+}
+
+@media all and (max-width: 720px) {
+    body {
+        background: var(--page);
+    }
+
+    .tocset {
+        display: none;
+        width: min(22rem, 86vw);
+        padding: 4.4rem 1rem 1.2rem 1rem;
+    }
+
+    .tocsetoverlay .tocset {
+        display: block;
+    }
+
+    .navsettop {
+        position: sticky;
+        top: 0;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        width: auto;
+        height: auto;
+        padding: 0.9rem 1rem 0.75rem 1rem;
+        margin: 0;
+        background: rgba(248, 244, 236, 0.94);
+        backdrop-filter: blur(6px);
+    }
+
+    .navleft {
+        position: static;
+        float: none;
+        margin: 0;
+        white-space: normal;
+    }
+
+    .navright,
+    .navsetbottom,
+    .nonavigation {
+        display: none;
+    }
+
+    .navleft .tocsettoggle {
+        display: inline;
+        font-family: "Fira", "Helvetica Neue", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+    }
+
+    .navleft .tocsettoggle a {
+        color: var(--muted);
+        text-decoration: none;
+    }
+
+    .navleft .tocsettoggle a:hover {
+        color: var(--ink);
+    }
+
+    .maincolumn {
+        max-width: none;
+        margin: 1rem 1.15rem 3rem 1.15rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6,
+    h7,
+    h8 {
+        font-size: 1.1rem;
+    }
+
+    blockquote {
+        margin-right: 0.75rem;
+        margin-left: 0.75rem;
+    }
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+
+    .tocset,
+    .navsettop,
+    .navsetbottom {
+        display: none;
+    }
+
+    .maincolumn {
+        margin: 0;
+        max-width: none;
+    }
 }
