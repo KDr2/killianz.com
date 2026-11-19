@@ -85,12 +85,6 @@ pre,
     font-size: 1.1rem;
 }
 
-/* Scribble emits an inline font-style for @italic. */
-.main :is(em, i, .emph, [style*="font-style: italic"]) {
-    font-style: normal !important;
-    font-weight: 600;
-}
-
 p,
 .SIntrapara {
     margin: 0 0 1.05em 0;
@@ -412,7 +406,6 @@ table.tocsublist {
 .tocsubtitle {
     color: var(--muted-soft);
     font-size: 0.72rem;
-    font-style: normal;
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
