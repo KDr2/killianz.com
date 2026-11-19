@@ -5,8 +5,8 @@
     --ink: #211a14;
     --muted: #625647;
     --muted-soft: #897c6e;
-    --link: #4d3927;
-    --link-hover: #2f2419;
+    --link: #285f68;
+    --link-hover: #17434a;
     --code: #dfcfb7;
     --note: #e3d4bd;
 }
@@ -85,6 +85,12 @@ pre,
     font-size: 1.1rem;
 }
 
+/* Scribble emits an inline font-style for @italic. */
+.main :is(em, i, .emph, [style*="font-style: italic"]) {
+    font-style: normal !important;
+    font-weight: 600;
+}
+
 p,
 .SIntrapara {
     margin: 0 0 1.05em 0;
@@ -113,6 +119,18 @@ a:hover {
     color: var(--link-hover);
     text-decoration: underline;
     text-underline-offset: 0.14em;
+}
+
+.main a[href]:not(:where(.toptoclink, .toclink)) {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.18em;
+    text-decoration-skip-ink: auto;
+}
+
+/* Keep heading links visually quiet. */
+.main :is(h1, h2, h3, h4, h5, h6, h7, h8) a[href] {
+    text-decoration: none;
 }
 
 h1,
@@ -394,6 +412,7 @@ table.tocsublist {
 .tocsubtitle {
     color: var(--muted-soft);
     font-size: 0.72rem;
+    font-style: normal;
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
